@@ -33,22 +33,20 @@ class User:
         '''
         credential_list.append(new_credential)
 
-        return credential_list
+    @classmethod
+    def display_credentials(cls,credential_list):
+        for c in credential_list:
+            return (c.platform,c.first_name,c.last_name,c.username,c.email,c.password)
+
 
     @classmethod
-    def display_credential(cls,credential_list):
-        '''
-        be able to display all credentials
-        '''
-        return credential_list
-
-    @classmethod
-    def del_credential(cls,credential_list):
+    def del_credential(cls,name,credential_list):
         '''
         be able to delete a credential
         '''
-        
-        Contact.contact_list.remove(self)
+        for c in credential_list:
+            if name == c.name:
+                User.credential_list.remove(c)
 
 
 
