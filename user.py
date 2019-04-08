@@ -45,8 +45,9 @@ class User:
         be able to delete a credential
         '''
         for c in credential_list:
-            if name == c.name:
-                User.credential_list.remove(c)
+            if name == c.platform:
+                credential_list.remove(c)
+        return credential_list
 
 
 

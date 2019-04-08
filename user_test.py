@@ -51,14 +51,25 @@ class TestUser(unittest.TestCase):
         User.save_credential(facebook_credential,user_credential_list)
         self.assertEqual(len(user_credential_list),1)
     
-    def test_display_credential(self):
+    def test_display_credentials(self):
         '''
         test_display_credential test case to test if all credentials will be returned
         '''
         facebook_credential = User.create_credential("facebook","Beyonce","Knowles","@beybey","beybey@hack","password")
         user_credential_list = []
         User.save_credential(facebook_credential,user_credential_list)
-        self.assertEqual(User.display_credential(user_credential_list),user_credential_list)
+        self.assertEqual(User.display_credentials(user_credential_list),("facebook","Beyonce","Knowles","@beybey","beybey@hack","password"))
+
+    def test_delete_credentials(self):
+        '''
+        test_display_credential test case to test if all credentials will be returned
+        '''
+        facebook_credential = User.create_credential("facebook","Beyonce","Knowles","@beybey","beybey@hack","password")
+        user_credential_list = []
+        User.save_credential(facebook_credential,user_credential_list)
+        new_list = User.del_credential("facebook",user_credential_list)
+        self.assertEqual(len(new_list),0)
+
 
     
 if __name__ == '__main__':
