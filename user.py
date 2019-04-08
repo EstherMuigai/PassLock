@@ -15,28 +15,7 @@ class User:
         self.email = email
         self.password = password
 
-    user_list = []
     credential_list = []
-
-    def save_user(self):
-
-        '''
-        save_user method saves user objects into user_list
-        '''
-
-        User.user_list.append(self)
-
-    @classmethod
-    def verify_user(cls,username,password):
-        '''
-        verify_user method confirms that a user exists on the list
-        '''
-        for user in cls.user_list:
-            if user.username == username and user.password == password:
-                    return True
-
-        else:
-            return False
 
     @classmethod
     def create_credential(cls,detail1,detail2,detail3,detail4,detail5,detail6):

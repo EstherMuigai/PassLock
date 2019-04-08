@@ -22,7 +22,6 @@ class TestUser(unittest.TestCase):
             '''
             tearDown method that does clean up after each test case has run.
             '''
-            User.user_list = []
             credential_list = []
         
     def test_init(self):
@@ -34,30 +33,12 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_user.username,"@bey")
         self.assertEqual(self.new_user.email,"bknowles@carter.com")
         self.assertEqual(self.new_user.password,"#####")
-    
-    def test_save_user(self):
-        '''
-        test_save_user test case to test if the user object is saved into
-         the user list
-        '''
-        self.new_user.save_user()
-        self.assertEqual(len(User.user_list),1)
-
-    def test_verify_user(self):
-        '''
-        test_verify_user confirms whether the user is on the list with a username and password
-        '''
-    
-        self.new_user.save_user()
-        verified_user = User.verify_user("@bey","#####")
-
-        self.assertTrue(verified_user)
 
     def test_create_credential(self):
         '''
         test_create_credential allows user to update a new credential
         '''
-        facebook_credential = User.create_credential("facebook","Beyonce""Knowles","@beybey","beybey@hack","password")
+        facebook_credential = User.create_credential("facebook","Beyonce","Knowles","@beybey","beybey@hack","password")
         self.assertTrue(facebook_credential)
 
     def test_save_credential(self):
@@ -65,7 +46,7 @@ class TestUser(unittest.TestCase):
         test_save_credentials test case to test if the credential object is saved into
          the credential list
         '''
-        facebook_credential = User.create_credential("facebook","Beyonce""Knowles","@beybey","beybey@hack","password")
+        facebook_credential = User.create_credential("facebook","Beyonce","Knowles","@beybey","beybey@hack","password")
         user_credential_list = []
         User.save_credential(facebook_credential,user_credential_list)
         self.assertEqual(len(user_credential_list),1)
@@ -74,13 +55,12 @@ class TestUser(unittest.TestCase):
         '''
         test_display_credential test case to test if all credentials will be returned
         '''
-        facebook_credential = User.create_credential("facebook","Beyonce""Knowles","@beybey","beybey@hack","password")
+        facebook_credential = User.create_credential("facebook","Beyonce","Knowles","@beybey","beybey@hack","password")
         user_credential_list = []
         User.save_credential(facebook_credential,user_credential_list)
-        self.assertEqual(User.display_credentials(),user_credential_list)
+        self.assertEqual(User.display_credential(user_credential_list),user_credential_list)
 
-
- 
+    
 if __name__ == '__main__':
     unittest.main()
 
