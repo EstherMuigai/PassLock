@@ -29,4 +29,4 @@ The project has four unit tests in two files:
 They ran successfully.
 
 ## Find license here
-https://github.com/EstherMuigai/PassLock
+https://github.com/EstherMuigai/PassLock/new/master
