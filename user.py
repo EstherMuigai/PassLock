@@ -17,6 +17,7 @@ class User:
 
     user_list = []
     credential_list = []
+
     def save_user(self):
 
         '''
