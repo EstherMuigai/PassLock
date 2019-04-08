@@ -10,11 +10,11 @@ def signup_user(first_name,last_name,username,email,password):
     new_user = User(first_name,last_name,username,email,password)
     return new_user
 
-def save_users(the_list):
+def save_users(user):
     '''
     Function to save a user
     '''
-    return User.save_user(the_list)
+    return user.save_user()
 
 def generate_password(passlength):
     '''
@@ -30,12 +30,12 @@ def authenticate_user(username,password):
     '''
     User.verify_user(username,password)
 
-def signup_credentials(platform,f_name,l_name,username,email,password,credential_list):
+def signup_credentials(platform,f_name,l_name,username,email,password):
     '''
     Function to add a new credential
     '''
     new_signup = User.create_credential(platform,f_name,l_name,username,email,password)
-    User.save_credential(new_signup,credential_list)
+    User.save_credential(new_signup)
 
 def show_credentials(credential_list):
     '''
@@ -87,9 +87,7 @@ def main():
                                 print("Type password ...")
                                 password = input()
 
-                                curruser = signup_user(first_name,last_name,username,email,password)
-                                login_list = save_users(curruser,a_list)
-                                print (login_list)
+                                save_users(signup_user(first_name,last_name,username,email,password))
                                 print(f"New User {first_name} {last_name} signed up")
                                 print ('\n')
                             

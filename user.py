@@ -35,7 +35,8 @@ class User:
             if user.username == username and user.password == password:
                     return True
 
-        return False
+        else:
+            return False
 
     @classmethod
     def create_credential(cls,detail1,detail2,detail3,detail4,detail5,detail6):
